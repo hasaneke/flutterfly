@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               controller: emailController,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             TextField(
               controller: passwordController,
               obscureText: true,
@@ -51,8 +51,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  print(emailController.text);
-                  print(passwordController.text);
+                  print("kullanıcı adı" + emailController.text);
+                  print("şifre" + passwordController.text);
                 },
                 child: Text('Giriş Yap'))
           ]),
