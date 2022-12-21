@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutterfly/101/examples/home_page.dart';
 
 class NewLoginPage extends StatefulWidget {
   const NewLoginPage({super.key});
@@ -14,6 +15,9 @@ class _NewLoginPageState extends State<NewLoginPage> {
   TextEditingController passwordControler = TextEditingController();
 
   String message = 'Giriş Yap';
+
+  String username = "muratyıldırım";
+  String password = "1234567";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +44,7 @@ class _NewLoginPageState extends State<NewLoginPage> {
                 child: Text(
                   message,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 52,
                     color: Colors.black38,
                   ),
@@ -58,7 +62,6 @@ class _NewLoginPageState extends State<NewLoginPage> {
               const SizedBox(height: 20),
               TextField(
                 controller: passwordControler,
-                obscureText: true,
                 decoration: InputDecoration(
                     hintText: 'Şifre',
                     border: OutlineInputBorder(
@@ -79,8 +82,17 @@ class _NewLoginPageState extends State<NewLoginPage> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    // ARTIK GİRİŞ YAPTI MESAJI GÜNCELLE
-                    message = 'Hoşgeldin ' + usernameController.text;
+                    if (usernameController.text == username &&
+                        passwordControler.text == password) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                HomePage(username: usernameController.text)),
+                      );
+                    } else {
+                      message = "Böyle bir kullanıcı yok";
+                      // BİR DİALOG GÖSTERİLSİN
+                    }
                   });
                 },
                 child: Padding(
