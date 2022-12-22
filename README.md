@@ -1,3 +1,3 @@
 # flutterfly
  
-Learn Flutter with this repository
+Learn Flutter with Flutter Fly
